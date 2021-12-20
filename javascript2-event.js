@@ -7,8 +7,11 @@ window.addEventListener("load", function(){
     
     
     tbody.onclick = function(e){
-        var target = e.target;
-        if(target.nodeName != "INPUT")  return;
+        e.preventDefault(); 
+    
+        var target = e.target;        
+        if(target.nodeName != "A")  return;
+        // if(target.nodeName != "INPUT")  return;
         if(target.classList.contains("sel-button")){
             var tr = target.parentElement;
             for(; tr.nodeName != "TR"; tr=tr.parentElement);
