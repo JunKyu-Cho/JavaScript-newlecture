@@ -7,7 +7,7 @@ window.addEventListener("load", function(){
     
     
     tbody.onclick = function(e){
-        e.preventDefault(); 
+        e.preventDefault(); // 태그 기본 이벤트 막기
     
         var target = e.target;        
         if(target.nodeName != "A")  return;
