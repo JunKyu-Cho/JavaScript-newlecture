@@ -8,7 +8,10 @@ window.addEventListener("load", function(){
     var dragging = false;
     var offset = {x:0, y:0};
 
-    container.onmousedown = function(e) {
+    var left = container.offsetLeft;
+    var top = container.offsetTop;
+
+    section.onmousedown = function(e) {
         if(e.target.classList.contains("box"))
         {
             dragging = true;
@@ -19,15 +22,15 @@ window.addEventListener("load", function(){
         }
     };
 
-    container.onmouseup = function(e) {
+    section.onmouseup = function(e) {
         dragging = false;
     };
 
-    container.onmousemove = function(e) {
+    section.onmousemove = function(e) {
         if(!dragging)   return;
 
-        var x = e.pageX - offset.x;
-        var y = e.pageY - offset.y;
+        var x = e.pageX - offset.x - left;
+        var y = e.pageY - offset.y - top;
 
         current.style.left = x + "px";
         current.style.top = y + "px";
