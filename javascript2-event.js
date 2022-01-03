@@ -1,3 +1,36 @@
+window.addEventListener("load", function() {
+    var section = document.querySelector("#section10");
+
+    var contatiner = section.querySelector(".container");
+    var dropzone = section.querySelector(".dropzone");
+
+    var box = section.querySelector(".box");
+
+});
+
+function dragstart(event) {
+    // var parentNode = e.target.parentElement;
+    console.log("ondrag start");
+    event.dataTransfer.setData("text", event.target.id);        
+ };
+ function dragover(event) {
+     console.log("ondragover start");
+     event.preventDefault();        
+ };
+ function drop(event) {
+     event.preventDefault();
+     var data = event.dataTransfer.getData("text");
+     var element = document.getElementById(data);
+     event.target.appendChild(element);
+
+     console.log(event.target.offsetX);
+     console.log(event.target.offsetY);
+     element.style.x = event.target.offsetX;
+     element.style.y = event.target.offsetY;
+
+ };
+
+
 // Ex9-마우스 이벤트 객체 : 박스 옵셋 영역 좌표 이용하기
 window.addEventListener("load", function(){
     var section = document.querySelector("#section9");
